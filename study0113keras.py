@@ -44,3 +44,6 @@ modelname="yolo_weights.h5"
 modelfilepath=os.path.join(modelpat,modelname)
 yolomodel=load_model(modelfilepath)
 yolomodel.summary()
+
+
+
