@@ -34,3 +34,32 @@ def yolo_filter_boxes(box_confidence , boxes, box_class_probs, threshold = 0.6):
     classes = tf.boolean_mask(box_classes,filtering_mask)
     
     return scores , boxes , classes
+
+
+def iou(box1, box2):
+    """
+    实现两个锚框的交并比的计算
+    
+    参数：
+        box1 - 第一个锚框，元组类型，(x1, y1, x2, y2)
+        box2 - 第二个锚框，元组类型，(x1, y1, x2, y2)
+    
+    返回：
+        iou - 实数，交并比。
+    """
+    #计算相交的区域的面积
+    xi1 = np.maximum(box1[0], box2[0])
+    yi1 = np.maximum(box1[1], box2[1])
+    xi2 = np.minimum(box1[2], box2[2])
+    yi2 = np.minimum(box1[3], box2[3])
+    inter_area = (xi1-xi2)*(yi1-yi2)
+    
+    #计算并集，公式为：Union(A,B) = A + B - Inter(A,B)
+    box1_area = (box1[2]-box1[0])*(box1[3]-box1[1])
+    box2_area = (box2[2]-box2[0])*(box2[3]-box2[1])
+    union_area = box1_area + box2_area - inter_area
+    
+    #计算交并比
+    iou = inter_area / union_area
+    
+    return iou
