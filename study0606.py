@@ -63,3 +63,41 @@ def iou(box1, box2):
     iou = inter_area / union_area
     
     return iou
+
+def predict(sess, image_file, is_show_info=True, is_plot=True):
+    """
+    运行存储在sess的计算图以预测image_file的边界框，打印出预测的图与信息。
+
+    参数：
+        sess - 包含了YOLO计算图的TensorFlow/Keras的会话。
+        image_file - 存储在images文件夹下的图片名称
+    返回：
+        out_scores - tensor类型，维度为(None,)，锚框的预测的可能值。
+        out_boxes - tensor类型，维度为(None,4)，包含了锚框位置信息。
+        out_classes - tensor类型，维度为(None,)，锚框的预测的分类索引。
+    """
+    #图像预处理
+    image, image_data = yolo_utils.preprocess_image("images/" + image_file, model_image_size = (608, 608))
+
+    #运行会话并在feed_dict中选择正确的占位符.
+    out_scores, out_boxes, out_classes = sess.run([scores, boxes, classes], feed_dict = {yolo_model.input:image_data, K.learning_phase(): 0})
+
+    #打印预测信息
+    if is_show_info:
+        print("在" + str(image_file) + "中找到了" + str(len(out_boxes)) + "个锚框。")
+
+    #指定要绘制的边界框的颜色
+    colors = yolo_utils.generate_colors(class_names)
+
+    #在图中绘制边界框
+    yolo_utils.draw_boxes(image, out_scores, out_boxes, out_classes, class_names, colors)
+
+    #保存已经绘制了边界框的图
+    image.save(os.path.join("out", image_file), quality=100)
+
+    #打印出已经绘制了边界框的图
+    if is_plot:
+        output_image = scipy.misc.imread(os.path.join("out", image_file))
+        plt.imshow(output_image)
+
+    return out_scores, out_boxes, out_classes
