@@ -82,6 +82,7 @@ def predict(sess, image_file, is_show_info=True, is_plot=True):
     #运行会话并在feed_dict中选择正确的占位符.
     out_scores, out_boxes, out_classes = sess.run([scores, boxes, classes], feed_dict = {yolo_model.input:image_data, K.learning_phase(): 0})
 
+
     #打印预测信息
     if is_show_info:
         print("在" + str(image_file) + "中找到了" + str(len(out_boxes)) + "个锚框。")
@@ -101,3 +102,21 @@ def predict(sess, image_file, is_show_info=True, is_plot=True):
         plt.imshow(output_image)
 
     return out_scores, out_boxes, out_classes
+
+
+
+
+for i in range(1,121):
+    
+    #计算需要在前面填充几个0
+    num_fill = int( len("0000") - len(str(1))) + 1
+    #对索引进行填充
+    filename = str(i).zfill(num_fill) + ".jpg"
+    print("当前文件：" + str(filename))
+    
+    #开始绘制，不打印信息，不绘制图
+    out_scores, out_boxes, out_classes = predict(sess, filename,is_show_info=False,is_plot=False)
+    
+    
+
+print("绘制完成！")
