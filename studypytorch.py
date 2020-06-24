@@ -87,3 +87,6 @@ net.zero_grad()
 out.backward(torch.randn(1, 10))
 
 import torchvision
+
+
+#python深度学习的学习笔记
