@@ -82,5 +82,9 @@ class item:
 #列表
 
 #第三章
+list()
+tuple()
+
+
 
 #第八章
