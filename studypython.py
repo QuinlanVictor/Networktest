@@ -98,3 +98,13 @@ tuple()
 
 #模块和包
 #sys  os   random   time  json支持  正则表达式
+
+#第十一章 图形界面编程
+#GUI库
+#创建一个简单窗口
+from tkinter import *
+root=Tk()
+root.title('')
+w=Label(root,text='')
+w.pack()
+root.mainloop()
