@@ -108,3 +108,23 @@ root.title('')
 w=Label(root,text='')
 w.pack()
 root.mainloop()
+
+#创建一个窗口，使用循环创建三个Label
+from tkinter import *
+root=Tk()
+root.title('PACK')
+for i in range(3):
+    lab=Label(root,text='',bg='')
+    lab.pack()
+root.mainloop()
+
+#多个容器（Frame）进行布局
+from tkinter import *
+class App:
+    def __init__(self,master):
+        self.master=master
+        self.initWidgets()
+    def initWidgets(self):
+        fm1=Frame(self.master)
+        fm1.pack(side=LEFT,fill=BOTH,expand=YES)
+
