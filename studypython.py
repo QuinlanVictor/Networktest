@@ -128,3 +128,16 @@ class App:
         fm1=Frame(self.master)
         fm1.pack(side=LEFT,fill=BOTH,expand=YES)
 
+
+#文件I/O
+from pathlib import *
+pp=PurePath('')
+pp=PurePath('','','')
+pp=PurePath(Path(''),Path(''))
+
+#匹配
+from pathlib import *
+import fnmatch
+for file in Path('.').iterdir():
+    if fnmatch.fnmatch(file,''):
+        print(file)
