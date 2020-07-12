@@ -32,3 +32,21 @@ class Solution524:
             if len(word) ==b:
                 return word
         return ''
+        
+        #leetcode 141
+class Solution141:
+    def hasCycle(self, head: ListNode) -> bool:
+        if not head:
+            return head
+        slow=head
+        quick=head
+        while quick and slow:
+            slow=slow.next
+            if quick.next:
+                quick=quick.next.next
+            else:
+                return False
+            if quick is slow:
+                return True
+        return False
+
