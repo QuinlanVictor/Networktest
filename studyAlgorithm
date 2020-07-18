@@ -20,3 +20,13 @@ for i in range(5):
 t.hideturtle()
 
 turtle.done()
+
+
+
+#散列
+def hash(astring,tablesize):
+    sum=0
+    for pos in range(len(astring)):
+        sum=sunm+ord(astring[pos])
+
+    return sum%tablesize
