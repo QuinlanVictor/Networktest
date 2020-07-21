@@ -30,3 +30,26 @@ def hash(astring,tablesize):
         sum=sunm+ord(astring[pos])
 
     return sum%tablesize
+
+#图
+g=Graph()
+for i in range(6):
+    g.addVertex(i)
+##ADT Graph 顶点Vertex类
+class Vertex:
+    def __init__(self,key):
+        self.id=key
+        self.connectedTo={}
+
+    def addNeighbor(self,nbr,weight=0):
+        self.connectedTo[nbr]=weight
+
+
+##BFS算法
+###回途追溯函数
+def traverse(y):
+    x=y
+    while (x.getPred()):
+        print(x.getID())
+        x=x.getPred()
+    print(x.getID())
