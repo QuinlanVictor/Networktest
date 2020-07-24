@@ -166,3 +166,38 @@ class Solution64:
                 elif j==0:grid[i][j]=grid[i-1][j]+grid[i][j]
                 else:grid[i][j]=min(grid[i-1][j],grid[i][j-1])+grid[i][j]
         return grid[-1][-1]
+
+
+#leetcode 95
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution95:
+    def generateTrees(self, n: int) -> List[TreeNode]:
+        if n==0:
+            return []
+        dct={}
+
+        def left_right(left:int,right:int)->List[TreeNode]:
+            if left>right:
+                return [None]
+            if (left,right) in dct:
+                return dct[(left,right)]
+            ret=[]
+
+            for i in range(left,right+1):
+                left_lst=left_right(left,i-1)
+                right_lst=left_right(i+1,right)
+                for L in left_lst:
+                    for R in right_lst:
+                        app_Tree=TreeNode(i)
+                        app_Tree.left=L
+                        app_Tree.right=R
+                        ret.append(app_Tree)
+            dct[(left,right)]=ret
+            return ret
+        left_right(1,n)
+        return left_right(1,n)
