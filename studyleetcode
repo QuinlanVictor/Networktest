@@ -235,3 +235,18 @@ class Solution329:
                             dp[j][k+1] if k != y-1 and matrix[j][k+1]<i else 0)
         
         return max(sum(dp,[]))
+
+
+#leetcode392
+class Solution392:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        n,m=len(s),len(t)
+        inx=-1
+        for i in range(n):
+            for j in range(inx+1,m):
+                if t[j]==s[i]:
+                    inx=j
+                    break
+            else:
+                return False
+        return True
