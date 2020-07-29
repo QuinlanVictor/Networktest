@@ -262,3 +262,22 @@ class Solution392:
 class Solution104:
     def maxDepth(self, root: TreeNode) -> int:
         return 0 if not root else max(self.maxDepth(root.left),self.maxDepth(root.right))+1
+
+
+#leetcode503
+class Solution503:
+    def nextGreaterElements(self, nums: List[int]) -> List[int]:
+        if not nums:
+            return []
+        length=len(nums)
+
+        nums=nums+nums
+        result=[-1]*length
+        stack=[0]
+
+        for i in range(1,len(nums)):
+            while(stack and nums [stack[-1]]<nums[i]):
+                target=stack.pop()
+                result[target%length]=nums[i]
+            stack.append(i%length)
+        return result
