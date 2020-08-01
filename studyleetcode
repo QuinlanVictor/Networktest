@@ -312,4 +312,28 @@ class Solution328:
             odd,even=odd.next,even.next
         odd.next=even_head
         return head
-      
+ 
+
+#leetcode634
+import heapq
+class Solution634:
+    def smallestRange(self, nums: List[List[int]]) -> List[int]:
+        k=len(nums)
+        elem_id_index=[(elem[0],id,0) for id,elem in enumerate(nums)]
+        heapq.heapify(elem_id_index)
+        maxval,minval=1e5,-1e5
+        currmaxcal=max(elem_id_index)[0]
+
+        while True:
+            currmincal,id,index=heapq.heappop(elem_id_index)
+            if currmaxcal-currmincal<maxval-minval:
+                maxval=currmaxcal
+                minval=currmincal
+            if index<len(nums[id])-1:
+                val=nums[id][index+1]
+                currmaxcal=max(currmaxcal,val)
+                heapq.heappush(elem_id_index,(val,id,index+1))
+            else:
+                break
+        return [minval,maxval]
+
