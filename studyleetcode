@@ -337,3 +337,26 @@ class Solution634:
                 break
         return [minval,maxval]
 
+
+#leetcode114
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution114:
+    def flatten(self, root: TreeNode) -> None:
+        """
+        Do not return anything, modify root in-place instead.
+        """
+        def helper(root,pre):
+            if not root:
+                return pre
+            pre=helper(root.right,pre)
+            pre=helper(root.left,pre)
+
+            root.right=pre
+            root.left=None
+            return root
+        helper(root,None)
