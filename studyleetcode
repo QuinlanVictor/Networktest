@@ -395,3 +395,24 @@ class Solution207:
         for i in range(numCourses):
             if not dfs(i,adjacency,flags):return False
         return True
+
+
+#leetcdoe337
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution337:
+    def dp(self, cur: TreeNode) -> List[int]:
+        if not cur:
+            return [0,0]
+
+        l=self.dp(cur.left)
+        r=self.dp(cur.right)
+        return [max(l)+max(r),cur.val+l[0]+r[0]]
+
+    def rob(self, root: TreeNode) -> int:
+        return max(self.dp(root))
