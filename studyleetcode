@@ -431,3 +431,19 @@ class Solution336:
                 if suf[::-1] == suf and pre[::-1] != w and pre[::-1] in lookup and j !=len(w):
                     res.append([i,lookup[pre[::-1]]])
         return res
+        
+#leetcode100
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution100:
+    def isSameTree(self, p: TreeNode, q: TreeNode) -> bool:
+        def preorder(root):
+            if not root:
+                return [None]
+            else:
+                return [root.val]+preorder(root.left)+preorder(root.right)
+        return preorder(p)==preorder(q)
