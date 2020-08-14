@@ -657,3 +657,29 @@ class Solution130:
                 # B 变成 O
                 if board[i][j] == "B":
                     board[i][j] = "O"
+
+
+#leetcode546
+class Solution546:
+    def removeBoxes(self, boxes: List[int]) -> int:
+        memo={}
+
+        def dp(l,r,n):
+            nonlocal memo,boxes
+            if memo.get((l,r,n)):
+                return memo[(l,r,n)]
+
+            if l==r-1:
+                return (n+1)*(n+1)
+
+            if boxes[l]==boxes[l+1]:
+                return dp(l+1,r,n+1)
+
+            res=(n+1)*(n+1)+dp(l+1,r,0)
+
+            for l2 in range(l+2,r):
+                if boxes[l2]==boxes[l]:
+                    res=max(res,dp(l+1,l2,0)+dp(l2,r,n+1))
+            memo[(l,r,n)]=res
+            return res
+        return dp(0,len(boxes),0)
