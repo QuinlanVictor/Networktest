@@ -724,3 +724,37 @@ class Solution110:
 
         if right=-1:return -1
         return max(left,right)+1 if abs(left-right)<2 else -1
+        
+        
+#leecode109
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution109:
+    def sortedListToBST(self, head: ListNode) -> TreeNode:
+        def findmid(head,tail):
+            slow=head
+            fast=head
+            while fast != tail and fast.next != tail:
+                slow=slow.next
+                fast=fast.next.next
+            return slow
+
+        def helper(head,tail):
+            if head==tail:return
+            node=findmid(head,tail)
+            root=TreeNode(node.val)
+            root.left=helper(head,node)
+            root.right=helper(node.next,tail)
+            return root
+
+        return helper(head,None)
+
