@@ -844,3 +844,19 @@ class Solution529:
                 else: board[i][j] = str(cnt)
             dfs(click[0],click[1])
             return board
+
+
+#leetcode111
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution111:
+    def minDepth(self, root: TreeNode) -> int:
+        if not root: return 0
+        l, r = self.minDepth(root.left), self.minDepth(root.right)
+        if root.left and root.right: return 1 + min(l, r)
+        else: return 1 + l + r
