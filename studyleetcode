@@ -878,3 +878,15 @@ class Solution679:
                         if nums[j] != 0 and helper(newnums + [nums[i]/nums[j]]): return True
             return False
         return helper(nums)
+
+
+
+#leetcode201
+class Solution201:
+    def rangeBitwiseAnd(self, m: int, n: int) -> int:
+        t=0
+        while m !=n:
+            m>>=1
+            n>>=1
+            t+=1
+        return n<<t
