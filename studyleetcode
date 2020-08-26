@@ -925,3 +925,17 @@ class Solution491:
 
         dfs(nums, [])
         return res
+
+
+#leetcode17
+class Solution17:
+    def letterCombinations(self, digits: str) -> List[str]:
+        if not digits:return []
+        phone=['abc','def','ghi','jkl','mno','pqrs','tuv','wxyz']
+        queue=['']
+        for digits in digits:
+            for _ in range(len(queue)):
+                tmp=queue.pop(0)
+                for letter in phone[ord(digits)-50]:
+                    queue.append(tmp+letter)
+        return queue
