@@ -939,3 +939,19 @@ class Solution17:
                 for letter in phone[ord(digits)-50]:
                     queue.append(tmp+letter)
         return queue
+
+#leetcode332
+class Solution332:
+    def findItinerary(self, tickets: List[List[str]]) -> List[str]:
+        d=collections.defaultdict(list)
+        for f,t in tickets:
+            d[f]+=[t]
+        for f in d:
+            d[f].sort()
+        ans=[]
+        def dfs(f):
+            while d[f]:
+                dfs(d[f].pop(0))
+            ans.insert(0,f)
+        dfs('JFK')
+        return ans
