@@ -967,3 +967,15 @@ class Solution(object)657:
             elif move == 'R': x += 1
 
         return x == y == 0
+
+#leetcode214
+class Solution214:
+    def shortestPalindrome(self, s: str) -> str:
+        j = 0
+        # 找到从头开始，最长的回文子串
+        for i in range(len(s) - 1, -1, -1):
+            if s[i] == s[j]: j += 1
+        if j == len(s): return s
+        # 后缀
+        suffix = s[j:]
+        return suffix[::-1] + self.shortestPalindrome(s[0:j]) + suffix
