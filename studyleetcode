@@ -979,3 +979,9 @@ class Solution214:
         # 后缀
         suffix = s[j:]
         return suffix[::-1] + self.shortestPalindrome(s[0:j]) + suffix
+
+#leetcode557
+class Solution557:
+    def reverseWords(self, s: str) -> str:
+        return ' '.join(s.split(' ')[::-1])[::-1]
+        
