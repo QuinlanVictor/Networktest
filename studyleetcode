@@ -985,3 +985,16 @@ class Solution557:
     def reverseWords(self, s: str) -> str:
         return ' '.join(s.split(' ')[::-1])[::-1]
         
+
+
+#leetcode841
+class Solution841:
+    def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+        visited,queue={0},[0]
+        while queue:
+            room_index=queue.pop()
+            for key in rooms[room_index]:
+                if key not in visited:
+                    visited.add(key)
+                    queue.insert(0,key)
+        return len(visited)==len(rooms)
