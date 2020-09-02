@@ -1011,3 +1011,19 @@ class Solution486:
             for j in range(i+1,n):
                 dp[i][j]=max(nums[j]-dp[i][j-1],nums[i]-dp[i+1][j])
         return dp[0][-1]>=0
+        
+        
+#leetcode167
+class Solution167:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        low, high = 0, len(numbers) - 1
+        while low < high:
+            total = numbers[low] + numbers[high]
+            if total == target:
+                return [low + 1, high + 1]
+            elif total < target:
+                low += 1
+            else:
+                high -= 1
+
+        return [-1, -1]
