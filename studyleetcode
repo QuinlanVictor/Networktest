@@ -1206,3 +1206,17 @@ class Solution347:
                 heap[1] = stat[i]
                 sift_down(heap, 1, k+1)
         return [item[0] for item in heap[1:]]
+
+
+#leetcode77
+class Solution77:
+    def combine(self, n: int, k: int) -> List[List[int]]:
+        res = []
+        def backtrack(i, k, tmp):
+            if k == 0:
+                res.append(tmp)
+                return
+            for j in range(i, n + 1):
+                backtrack(j+1, k-1, tmp + [j])
+        backtrack(1, k, [])
+        return res
