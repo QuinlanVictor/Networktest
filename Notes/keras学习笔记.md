@@ -58,3 +58,34 @@ jpg文件的解码过程：
                     2是在输入的部分加入新的结构，扩充数据集，冻结网络结构进行训练
 
 微调
+
+
+#### 10.16
+
+学习进度：keras API范例 1.6 可视化
+
+学习随记：回顾之前的学习内容
+
+中间层的一些学习代码：
+
+        from keras.models import load_model
+        model = load_model('')
+        model.summary()
+
+        img_path = ''
+
+        from keras.preprocessing import image
+        import numpy as np
+        img = image.load_img('')
+        img_tensor = image.img_to_array(img)
+
+        img_tensor = np.expand_dims(img_tensor,axis=0)
+        img_tensor /= 255.
+
+
+        from keras import models
+        layer_outputs = [layer.output for layer in model.layers[:8]]
+        activation_model = models.Model(inputs=model.input, outputs=layer_outputs)
+        activations = activation_model.predict(img_tensor)
+        first_layer_activation = activations[0]
+        print(first_layer_activation.shape) # 看一下第一層產生的shape
