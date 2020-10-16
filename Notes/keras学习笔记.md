@@ -2,6 +2,11 @@
 
 项目地址：[deep-learning-with-keras-notebooks](https://github.com/erhwenkuo/deep-learning-with-keras-notebooks)
 
+1016note：可以配合着书籍《Python深度学习》一书看看，这本书算是keras入门书籍，内容也与项目中的笔记部分一致，因为笔记使用的是繁体，一些翻译习惯也不太一样，所以参照书本可能更直观一些
+
+正好之前也在重新复习这本书，正好作为一个学习随记
+
+
     实验环境
     import platform
     import tensorflow
@@ -66,7 +71,7 @@ jpg文件的解码过程：
 
 学习随记：回顾之前的学习内容
 
-中间层的一些学习代码：
+中间激活的可视化：
 
         from keras.models import load_model
         model = load_model('')
@@ -89,3 +94,9 @@ jpg文件的解码过程：
         activations = activation_model.predict(img_tensor)
         first_layer_activation = activations[0]
         print(first_layer_activation.shape) # 看一下第一層產生的shape
+
+可视化卷积神经网络的过滤器：
+
+
+可视化类激活的热力图：
+
