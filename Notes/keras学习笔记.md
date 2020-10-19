@@ -113,3 +113,17 @@ jpg文件的解码过程：
 
 学习进度：keras API范例 1.8 1.9
 
+
+#### 10.19
+
+学习进度：keras API范例 1.8 1.9
+         
+         图像识别 2.1
+ 
+学习随记：接着昨天的学习内容，昨天基本上就是简单看了看，并没有太深入的学习
+
+先好好复习，看看内容
+
+记住一个图像增强可以用到的： ImageDataGenerator
+
+    from keras.preprocessing.image import ImageDataGenerator
