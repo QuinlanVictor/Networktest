@@ -127,3 +127,9 @@ jpg文件的解码过程：
 记住一个图像增强可以用到的： ImageDataGenerator
 
     from keras.preprocessing.image import ImageDataGenerator
+
+
+#### 10.20
+
+学习进度：图像识别 2.2
+
