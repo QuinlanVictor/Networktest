@@ -27,3 +27,10 @@ jupyter
 pandas：
 
 主要有两种数据结构：Series系列和Dataframe数据框
+
+##### 10.30
+
+学习进度：回顾下之前的进度
+
+学习随记：今天算是搞定了jyputer notebook的应用，怎么使用本地的虚拟环境
+
