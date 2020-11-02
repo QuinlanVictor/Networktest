@@ -69,7 +69,34 @@ pandas：
 
 list
 
+    pd.DataFrame([1,2,3,4])
 
+dict
+
+    data = {'a':[1,2],'b':[2,3]}
+    pd.DataFrame(data)
+    # 或者
+    pd.DataFrame.from_dict(data)
+
+np.array
+
+    #有一个txt数据文件
+    data = np.loadtxt('fit.txt', delimiter=None, comments='%',  usecols=(0, 1, 4,5))
+
+其他方式
+
+    with open(path, "r") as load_f:
+        l = f.readlines()
+
+* 2.文本格式数据格式数据
+
+CSV文件
+
+导入CSV文件
+
+    pandas.read_csv(filepath_or_buffer, sep=',', header='infer', names=None, indxe_col=None)
+    
+    
 
 ##### 11.2
 
