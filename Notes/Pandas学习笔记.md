@@ -96,7 +96,48 @@ CSV文件
 
     pandas.read_csv(filepath_or_buffer, sep=',', header='infer', names=None, indxe_col=None)
     
+    filepath_or buffer: str, path object or file-like object。指定传入的文件路径，必须传入的参数。
+    sep: str。指定分隔符，默认是逗号分隔符。
+    header: int, list or int。指定行数用来作为列名。默认是如果没有传入names参数，则header=0，用第一行作为列名，否则header=None，以传入的names作为列名。另外如果传入的是list，例如[0,1,3]，  则是以第1、2、4这些行作为多级列名，且中间的行，第3行会被忽略，数据从第5行开始。
+    names: array-like, optional。指定文件的列名。如果文件中没有标题行，建议传入此参数。
+    index_col: int, str, or sequence of int / str, or False。指定文件的索引，默认为None。
     
+导入ex1.csv
+
+    df = pd.read_csv('examples/ex1.csv')    
+
+设置sep和header参数，导入ex2.csv
+
+    df2 = pd.read_csv('examples/ex2.csv',sep='|',header=None)
+
+设置sep和names参数，此时header默认为None
+
+    df3 = pd.read_csv('examples/ex2.csv',sep='|', names=['ID','name','age','city','message
+
+对ex1.csv设置多级标题，将第1、2、4行作为标题，数据从第5行开始
+
+    df4 = pd.read_csv('examples/ex1.csv',header=[0,1,3])
+
+导入ex1.csv，指定索引为message一列
+
+    df5 = pd.read_csv('examples/ex1.csv',index_col='ID')
+
+导入ex1.csv，指定第1和2列作为多重索引
+
+    df6 = pd.read_csv('examples/ex1.csv',index_col=[0,1])
+_____
+导出csv数据
+
+    DataFrame.to_csv(path_or_buf, index=True, header=True, sep=',', encoding='utf-8')
+
+    path_or_buf: str or file handle。指定保存文件路径，必须传入的参数，默认为None。
+    index: bool。导出的csv是否包含索引，默认为True。
+    header: bool or list of str。导出的csv是否包含标题行，默认为True。
+    sep: str。指定导出的csv文件的分隔符，默认为逗号分隔符。
+    encoding: str。指定导出的csv文件的编码，默认为utf-8。
+
+    # 导出文件
+    df.to_csv("output/out_ex1.csv",index=False)
 
 ##### 11.2
 
@@ -105,3 +146,9 @@ CSV文件
 #### 11.4
 
 这两天修改文章，可能要再延后几天看看学习项目，之后再补充下笔记
+
+#### 11.5
+
+学习进度：补充下之前的笔记内容
+
+excel文件
