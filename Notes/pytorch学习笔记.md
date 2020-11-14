@@ -297,3 +297,44 @@ Pytorch没有官方的高阶API，一般需要用户自己实现训练循环、�
 张量结构操作诸如：张量创建，索引切片，维度变换，合并分割。
 
 张量数学运算主要有：标量运算，向量运算，矩阵运算。张量运算的广播机制。
+
+* 索引切片
+
+张量的索引切片方式和numpy几乎是一样的。切片时支持缺省参数和省略号。可以通过索引和切片对部分元素进行修改。
+
+此外，对于不规则的切片提取,可以使用torch.index_select, torch.masked_select, torch.take
+
+对于不规则的切片提取,可以使用torch.index_select, torch.take, torch.gather, torch.masked_select.
+
+如果要通过修改张量的某些元素得到新的张量，可以使用torch.where,torch.masked_fill,torch.index_fill
+
+        torch.where可以理解为if的张量版本。
+
+        torch.index_fill的选取元素逻辑和torch.index_select相同。
+
+        torch.masked_fill的选取元素逻辑和torch.masked_select相同。
+
+* 维度变换
+
+维度变换相关函数主要有 torch.reshape(或者调用张量的view方法), torch.squeeze, torch.unsqueeze, torch.transpose
+
+        torch.reshape 可以改变张量的形状。
+
+        torch.squeeze 可以减少维度。
+
+        torch.unsqueeze 可以增加维度。
+
+        torch.transpose 可以交换维度。如果是二维的矩阵，通常会调用矩阵的转置方法 matrix.t()，等价于 torch.transpose(matrix,0,1)。
+
+* 合并分割
+
+可以用torch.cat方法和torch.stack方法将多个张量合并，可以用torch.split方法把一个张量分割成多个张量。
+
+torch.cat和torch.stack有略微的区别，torch.cat是连接，不会增加维度，而torch.stack是堆叠，会增加维度。
+
+torch.split是torch.cat的逆运算，可以指定分割份数平均分割，也可以通过指定每份的记录数量进行分割。
+
+#### 11.14
+
+接着补充一下笔记，看看之前的内容，主要是张量的操作，正看完tf那边的内容，再看看pytorch的，结合起来学习
+
