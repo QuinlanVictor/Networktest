@@ -359,3 +359,19 @@ ________
 
 把第五章的内容看看，对应的api相应的再复习一下，这都是平常能用到的
 
+#### 11.20
+
+学习进度：继续往下看看，然后复习一下之前学习的内容
+
+重新看看第二章的内容:tf.Variable和tf.constant，一个是变量张量，可以训练的，一个是常量张量，不能修改
+
+看到了with语句：with open(annotation_path) as f   和   with tf.GradientTape() as tape
+
+Tensorflow一般使用梯度磁带tf.GradientTape来记录正向运算过程，然后反播磁带自动得到梯度值。这种利用tf.GradientTape求微分的方法叫做Tensorflow的自动微分机制。
+
+如果需要在TensorFlow2.0中使用静态图，可以使用@tf.function装饰器将普通Python函数转换成对应的TensorFlow计算图构建代码。运行该函数就相当于在TensorFlow1.0中用Session执行代码。使用tf.function构建静态图的方式叫做 Autograph.
+
+#### 11.21 
+
+接着昨天的内容继续看看四五章
+
