@@ -13,3 +13,11 @@
 这好像安装的是最新版的，附上一个github地址，[SimpleITK](https://github.com/SimpleITK/SimpleITK/releases)
 
 再附上一个解决办法的博客 [CSDN Python SimpleITK库的安装](https://blog.csdn.net/weixin_44217573/article/details/108624916)
+
+_______
+
+然后是pydicom的安装
+
+        conda install -c conda-forge pydicom
+
+附上在github的地址，[pydicom](https://github.com/pydicom/pydicom)
