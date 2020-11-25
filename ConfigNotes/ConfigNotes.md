@@ -11,3 +11,5 @@
         conda install -c simpleitk/label/dev simpleitk
         
 这好像安装的是最新版的，附上一个github地址，[SimpleITK](https://github.com/SimpleITK/SimpleITK/releases)
+
+再附上一个解决办法的博客 [CSDN Python SimpleITK库的安装](https://blog.csdn.net/weixin_44217573/article/details/108624916)
