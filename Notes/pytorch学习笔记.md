@@ -365,3 +365,7 @@ torch.split是torch.cat的逆运算，可以指定分割份数平均分割，也
 开始好好研究pytorch了，从开源的项目入手，进行试验
 
 回顾一下学习的内容，也学习keras，侧重点在pytorch
+
+#### 12.2
+
+从头看看pytorch
