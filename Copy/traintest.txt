@@ -1,0 +1,11 @@
+E:\Files\Repositories\0907\Project/VOCdevkit/VOC2007-imgaug/JPEGImages/6370_FV.jpg 115,216,127,231,0
+E:\Files\Repositories\0907\Project/VOCdevkit/VOC2007-imgaug/JPEGImages/3877_R180.jpg 133,330,144,345,0
+E:\Files\Repositories\0907\Project/VOCdevkit/VOC2007-imgaug/JPEGImages/5080_R270.jpg 211,212,231,231,0
+E:\Files\Repositories\0907\Project/VOCdevkit/VOC2007-imgaug/JPEGImages/0556_R90.jpg 174,373,211,408,0
+E:\Files\Repositories\0907\Project/VOCdevkit/VOC2007-imgaug/JPEGImages/5530_FV.jpg 87,142,108,166,0
+E:\Files\Repositories\0907\Project/VOCdevkit/VOC2007-imgaug/JPEGImages/4105.jpg 75,239,80,244,0
+E:\Files\Repositories\0907\Project/VOCdevkit/VOC2007-imgaug/JPEGImages/4250_R90.jpg 349,309,370,324,0
+E:\Files\Repositories\0907\Project/VOCdevkit/VOC2007-imgaug/JPEGImages/5632_R270.jpg 237,321,243,325,0
+E:\Files\Repositories\0907\Project/VOCdevkit/VOC2007-imgaug/JPEGImages/0933_FV.jpg 374,279,384,289,0
+E:\Files\Repositories\0907\Project/VOCdevkit/VOC2007-imgaug/JPEGImages/1141.jpg 175,285,183,291,0
+E:\Files\Repositories\0907\Project/VOCdevkit/VOC2007-imgaug/JPEGImages/0643_FV.jpg 449,232,474,264,0
